@@ -1,0 +1,81 @@
+ /* You can add global styles to this file, and also import other style files */
+
+//variables
+$accent: #ff4081;
+
+//Sizes
+.full-width,
+app-all,
+app-pending,
+app-completed{
+    width: 100%;
+}
+
+//Inputs 
+.outline-input {
+    // Responsible for the 
+    .mat-mdc-text-field-wrapper {
+        height: 40px !important;
+        align-items: center;
+    }
+    .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+}
+
+.full-height {
+    height: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+//gaps
+.gap-1em{
+    gap: 1em;
+}
+.flex-1 {
+    flex: 1;
+}
+
+.start-center {
+    align-items: center;
+}
+
+.space-between-center {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link:hover, .activeLink {
+    color: $accent;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.center-center {
+    justify-content: center;
+    align-items: center;
+}
+//fonts
+.text-center{
+    text-align: center;
+}
+.gap{
+    
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

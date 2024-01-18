@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <div>
+     <h2>All To-Do</h2>   
+    </div>    
+    <!-- Title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <!-- Due Date Column -->
+    <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef> Due Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.dueDate | date}} </td>
+      </ng-container>
+
+      <!-- Status Column -->
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{color: element.status === 'pending' ? 'red' : element.status === 'completed' ? 'green' : 'blue'}" class="space-between"> {{element.status}} 
+      </td>
+      </ng-container>
+      <!-- the Action column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{color: element.status === 'pending' ? 'red' : element.status === 'completed' ? 'green' : 'blue'}" class="space-between">
+          <button (click)="goDelete()" mat-fab color="primary">
+              <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-fab color="warm"(click)="editToDo(element)">
+            <mat-icon>create</mat-icon>
+        </button>
+      </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

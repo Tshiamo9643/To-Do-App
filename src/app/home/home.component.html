@@ -1,0 +1,36 @@
+<div class="flex column full-width">
+    <!-- The toolbar -->
+    <!-- flex makes the divs to be in a row form, space-between-center separates the div(header bar, search bar, and paragraph) -->
+    <mat-toolbar class="flex space-between-center">
+       <!-- There is 3 main divs   1 for the header 2nd is for the search 3rd one is for the navigation Items-->
+       <!-- the styling of the header has width 240px -->
+        <div class="width-240px">
+            <h3>TO-DO-APP</h3>
+        </div>
+        <!--The search which has a styling of mat-mdc-text-field-wrapper within the outline-input that increases the height of 40px from the top-->
+        <!-- max-width-400px on the search input is make the width of the give maximum width of 400px  and full-width making it to be 400px-->
+        <div class="outline-input max-width-400px full-width">
+            <mat-form-field appearance = "outline" class="full-width">
+                <mat-icon matPrefix>search</mat-icon>    
+                <input matInput placeholder="search-to-do">
+            </mat-form-field>
+        </div>
+        <!-- We wanted to dynamically instantiate the 'All', 'Pending', 'Completed' through each data of navigation items using ngFor   -->
+        <!-- During the ngFor function the information about the navItems to track each Item displayed -->
+        <!-- class.activeLink strictly check the selected item that is clicked and displayed at the web search bar -->
+        <div class="flex gap-1em width-240px">
+            <p *ngFor="let item of navItems; let i = index"
+            class="link" [class.activeLink]="selectedItem===i" (click)="selectedItem= i" [routerLink]="item.route">
+            {{item.label | titlecase}}
+            </p>
+        </div>
+    </mat-toolbar>
+    <div class="flex flex-1">
+        <router-outlet></router-outlet>
+    </div>
+    <div>
+        <button mat-fab color="accent" class="add-to-do" matTooltip="Add a new to-do"(click)="addToDo()">
+            <mat-icon>add</mat-icon>
+          </button>
+    </div>
+</div>
